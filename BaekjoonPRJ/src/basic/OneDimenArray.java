@@ -1,11 +1,9 @@
 package basic;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class OneDimenArray {
 	
@@ -18,18 +16,20 @@ public class OneDimenArray {
 			모든 정수는 -1,000,000보다 크거나 같고, 1,000,000보다 작거나 같은 정수이다.
 		출력 : 첫째 줄에 주어진 정수 N개의 최솟값과 최댓값을 공백으로 구분해 출력한다.*/
 		
-		Scanner in = new Scanner(System.in);
-		int N = in.nextInt();
-        int min = 1000000;
-        int max = -1000000;
-		while(N-- > 0) {
-			int num = in.nextInt();
-			if(num < min) min=num;
-			if(num > max) max=num;
-		}
-		in.close();
-		System.out.print(min+" "+max);
-		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    Integer.parseInt(br.readLine());
+	    StringTokenizer st = new StringTokenizer(br.readLine());
+
+	    int max = -1000001;
+	    int min = 1000001;
+
+	    while(st.hasMoreElements()) {
+	      int num = Integer.parseInt(st.nextToken());
+	      if(num > max) max=num;
+	      if(num < min) min=num;
+	    }
+	    System.out.println(min+" "+max);
+	    
 	}
 
 }
