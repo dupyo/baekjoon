@@ -3,6 +3,8 @@ package basic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class OneDimenArray {
@@ -61,6 +63,7 @@ public class OneDimenArray {
 		}
 		System.out.println(val+"\n"+val_idx);*/
 		
+		
 		//3단계 - 숫자의 개수 (각 숫자가 몇 번 나왔는지 저장하기 위해 일차원 배열을 만드는 문제)
 		/*문제 : 세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.
 			예를 들어 A = 150, B = 266, C = 427 이라면 A × B × C = 150 × 266 × 427 = 17037300 이 되고, 계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다.
@@ -81,7 +84,7 @@ public class OneDimenArray {
 		2
 		0
 		0*/
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int ABC = 1;
 		for(int i=0; i < 3; i++) 
 			ABC*=Integer.parseInt(br.readLine());
@@ -91,10 +94,39 @@ public class OneDimenArray {
 		for(int i=0; i < 10; i++) {
 			arr[i]=strABC.length()-strABC.replaceAll(""+i, "").length();
 			System.out.println(arr[i]);
-		}
+		}*/
 		/*for (int i = 0; i < strABC.length(); i++)
 			arr[(strABC.charAt(i) - '0')]++;		//인덱스 값 +1 (char 타입의 아스키코드 개념 활용) from 	아이디:gnsrudfk
-*/		
+		 */
+		
+		
+		//4단계 - 나머지
+		/*문제: 두 자연수 A와 B가 있을 때, A%B는 A를 B로 나눈 나머지 이다. 예를 들어, 7, 14, 27, 38을 3으로 나눈 나머지는 1, 2, 0, 2이다. 
+			수 10개를 입력받은 뒤, 이를 42로 나눈 나머지를 구한다. 그 다음 서로 다른 값이 몇 개 있는지 출력하는 프로그램을 작성하시오.
+		입력 : 첫째 줄부터 열번째 줄 까지 숫자가 한 줄에 하나씩 주어진다. 이 숫자는 1,000보다 작거나 같고, 음이 아닌 정수이다.
+		출력 : 첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.*/
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int[] mod = new int [10];
+		int cnt = 0;
+		int dup = 42;
+		for(int i=0; i < 10; i++)
+			mod[i]=Integer.parseInt(br.readLine())%42;
+		
+		Arrays.sort(mod);
+		for(int n : mod) {
+			if(dup == n)
+				continue;
+			dup=n;
+			cnt++;
+		}
+		System.out.println(cnt);
+		
+		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		HashSet<Integer> set = new HashSet<>();
+		for(int i=0; i < 10; i++)
+			set.add(Integer.parseInt(br.readLine())%42);
+		
+		System.out.println(set.size());*/
 	}
 
 }
