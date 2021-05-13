@@ -10,7 +10,22 @@ import java.util.StringTokenizer;
 public class OneDimenArray {
 	
 	public static void main(String[] args) throws IOException {
+		
 		//1차원 배열
+		//1단계 - 최소, 최대 (최솟값과 최댓값을 찾는 문제)
+//		new OneDimenArray().stage1();
+		//2단계 - 최댓값 (최댓값이 어디에 있는지 찾는 문제)
+//		new OneDimenArray().stage2();
+		//3단계 - 숫자의 개수 (각 숫자가 몇 번 나왔는지 저장하기 위해 일차원 배열을 만드는 문제)
+//		new OneDimenArray().stage3();
+		//4단계 - 나머지
+//		new OneDimenArray().stage4();
+		//5단계 - 평균(평균을 조좍하는 문제)
+		new OneDimenArray().stage5();
+		
+	}
+	
+	public void stage1() throws IOException {
 		
 		//1단계 - 최소, 최대 (최솟값과 최댓값을 찾는 문제)
 		/*문제 : 	N개의 정수가 주어진다. 이때, 최솟값과 최댓값을 구하는 프로그램을 작성하시오.
@@ -22,7 +37,7 @@ public class OneDimenArray {
 		20 10 35 30 7
 		예제 출력
 		7 35*/
-		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -34,9 +49,11 @@ public class OneDimenArray {
 			if(num > max) max=num;
 			if(num < min) min=num;
 		}
-		System.out.println(min+" "+max);*/
-		
+		System.out.println(min+" "+max);
+	}
 	
+	public void stage2() throws IOException {
+		
 		//2단계 - 최댓값 (최댓값이 어디에 있는지 찾는 문제)
 		/* 문제 : 9개의 서로 다른 자연수가 주어질 때, 이들 중 최댓값을 찾고 그 최댓값이 몇 번째 수인지를 구하는 프로그램을 작성하시오.
 		예를 들어, 서로 다른 9개의 자연수
@@ -50,7 +67,7 @@ public class OneDimenArray {
 		85
 		8*/
 		
-		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int k = 0;
 		int val_idx = 0;
 		int val = 1;
@@ -61,8 +78,11 @@ public class OneDimenArray {
 				val_idx=k;
 			}
 		}
-		System.out.println(val+"\n"+val_idx);*/
+		System.out.println(val+"\n"+val_idx);
 		
+	}
+	
+	public void stage3() throws IOException {
 		
 		//3단계 - 숫자의 개수 (각 숫자가 몇 번 나왔는지 저장하기 위해 일차원 배열을 만드는 문제)
 		/*문제 : 세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.
@@ -84,7 +104,7 @@ public class OneDimenArray {
 		2
 		0
 		0*/
-		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int ABC = 1;
 		for(int i=0; i < 3; i++) 
 			ABC*=Integer.parseInt(br.readLine());
@@ -94,18 +114,20 @@ public class OneDimenArray {
 		for(int i=0; i < 10; i++) {
 			arr[i]=strABC.length()-strABC.replaceAll(""+i, "").length();
 			System.out.println(arr[i]);
-		}*/
+		}
 		/*for (int i = 0; i < strABC.length(); i++)
 			arr[(strABC.charAt(i) - '0')]++;		//인덱스 값 +1 (char 타입의 아스키코드 개념 활용) from 	아이디:gnsrudfk
 		 */
-		
+	}
+	
+	public void stage4() throws IOException {
 		
 		//4단계 - 나머지
 		/*문제: 두 자연수 A와 B가 있을 때, A%B는 A를 B로 나눈 나머지 이다. 예를 들어, 7, 14, 27, 38을 3으로 나눈 나머지는 1, 2, 0, 2이다. 
 			수 10개를 입력받은 뒤, 이를 42로 나눈 나머지를 구한다. 그 다음 서로 다른 값이 몇 개 있는지 출력하는 프로그램을 작성하시오.
 		입력 : 첫째 줄부터 열번째 줄 까지 숫자가 한 줄에 하나씩 주어진다. 이 숫자는 1,000보다 작거나 같고, 음이 아닌 정수이다.
 		출력 : 첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.*/
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int[] mod = new int [10];
 		int cnt = 0;
 		int dup = 42;
@@ -119,14 +141,39 @@ public class OneDimenArray {
 			dup=n;
 			cnt++;
 		}
-		System.out.println(cnt);
+		System.out.println(cnt);*/
 		
-		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		HashSet<Integer> set = new HashSet<>();
 		for(int i=0; i < 10; i++)
 			set.add(Integer.parseInt(br.readLine())%42);
 		
-		System.out.println(set.size());*/
+		System.out.println(set.size());
+		
+	}
+	
+	public void stage5() throws IOException {
+		
+		//5단계 - 평균(평균을 조좍하는 문제)
+		/*문제 : 세준이는 기말고사를 망쳤다. 세준이는 점수를 조작해서 집에 가져가기로 했다. 일단 세준이는 자기 점수 중에 최댓값을 골랐다. 이 값을 M이라고 한다. 그리고 나서 모든 점수를 점수/M*100으로 고쳤다.
+		예를 들어, 세준이의 최고점이 70이고, 수학점수가 50이었으면 수학점수는 50/70*100이 되어 71.43점이 된다.
+		세준이의 성적을 위의 방법대로 새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성하시오.
+		입력 : 첫째 줄에 시험 본 과목의 개수 N이 주어진다. 이 값은 1000보다 작거나 같다. 둘째 줄에 세준이의 현재 성적이 주어진다. 이 값은 100보다 작거나 같은 음이 아닌 정수이고, 적어도 하나의 값은 0보다 크다.
+		출력 : 첫째 줄에 새로운 평균을 출력한다. 실제 정답과 출력값의 절대오차 또는 상대오차가 10-2 이하이면 정답이다.*/
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int size = Integer.parseInt(br.readLine());
+		String[] scores = br.readLine().split(" ");
+		int[] arr = new int [size];
+		int max = 0;
+		float sum = 0;
+		for(int i=0; i < size; i++) {
+			arr[i]=Integer.parseInt(scores[i]);
+			max=(max < arr[i]) ? arr[i] : max;
+		}
+		for(int i=0; i < size; i++)
+			sum+=(float)arr[i]/max*100;
+		System.out.println(sum/size);
 	}
 
 }
