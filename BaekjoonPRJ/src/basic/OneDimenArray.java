@@ -46,10 +46,10 @@ public class OneDimenArray {
 
 		while(st.hasMoreElements()) {
 			int num = Integer.parseInt(st.nextToken());
-			if(num > max) max=num;
-			if(num < min) min=num;
+			if(num > max) max = num;
+			if(num < min) min = num;
 		}
-		System.out.println(min+" "+max);
+		System.out.println(min + " " + max);
 	}
 	
 	public void stage2() throws IOException {
@@ -74,11 +74,11 @@ public class OneDimenArray {
 		while(k++ < 9) {
 			int n = Integer.parseInt(br.readLine());
 			if(n > val) {
-				val=n;
-				val_idx=k;
+				val = n;
+				val_idx = k;
 			}
 		}
-		System.out.println(val+"\n"+val_idx);
+		System.out.println(val + "\n" + val_idx);
 		
 	}
 	
@@ -106,13 +106,13 @@ public class OneDimenArray {
 		0*/
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int ABC = 1;
-		for(int i=0; i < 3; i++) 
-			ABC*=Integer.parseInt(br.readLine());
+		for(int i = 0; i < 3; i++) 
+			ABC *= Integer.parseInt(br.readLine());
 		
 		int[] arr = new int [10];
 		String strABC = String.valueOf(ABC);
-		for(int i=0; i < 10; i++) {
-			arr[i]=strABC.length()-strABC.replaceAll(""+i, "").length();
+		for(int i = 0; i < 10; i++) {
+			arr[i] = strABC.length() - strABC.replaceAll("" + i, "").length();
 			System.out.println(arr[i]);
 		}
 		/*for (int i = 0; i < strABC.length(); i++)
@@ -131,22 +131,22 @@ public class OneDimenArray {
 		int[] mod = new int [10];
 		int cnt = 0;
 		int dup = 42;
-		for(int i=0; i < 10; i++)
-			mod[i]=Integer.parseInt(br.readLine())%42;
+		for(int i = 0; i < 10; i++)
+			mod[i] = Integer.parseInt(br.readLine()) % 42;
 		
 		Arrays.sort(mod);
 		for(int n : mod) {
 			if(dup == n)
 				continue;
-			dup=n;
+			dup = n;
 			cnt++;
 		}
 		System.out.println(cnt);*/
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		HashSet<Integer> set = new HashSet<>();
-		for(int i=0; i < 10; i++)
-			set.add(Integer.parseInt(br.readLine())%42);
+		for(int i = 0; i < 10; i++)
+			set.add(Integer.parseInt(br.readLine()) % 42);
 		
 		System.out.println(set.size());
 		
@@ -167,13 +167,13 @@ public class OneDimenArray {
 		int[] arr = new int [size];
 		int max = 0;
 		float sum = 0;
-		for(int i=0; i < size; i++) {
-			arr[i]=Integer.parseInt(scores[i]);
-			max=(max < arr[i]) ? arr[i] : max;
+		for(int i = 0; i < size; i++) {
+			arr[i] = Integer.parseInt(scores[i]);
+			max = (max < arr[i]) ? arr[i] : max;
 		}
-		for(int i=0; i < size; i++)
-			sum+=(float)arr[i]/max*100;
-		System.out.println(sum/size);
+		for(int i = 0; i < size; i++)
+			sum += (float)arr[i] / max * 100;
+		System.out.println(sum / size);
 	}
 
 }
